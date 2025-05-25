@@ -67,7 +67,7 @@
         const username = document.getElementById("username").value;
         const password = document.getElementById("password").value;
 
-        fetch(`http://localhost:8080/adminLogin/${username}/${password}`)
+        fetch(`https://event-manager-e5az.onrender.com/${username}/${password}`)
 .then(response => {
     if (!response.ok) {
         throw new Error('Network response was not ok');
@@ -76,7 +76,7 @@
 })
 .then(data => {
     alert(data);
-    window.location.href = `http://localhost:8080/dashboard/${username}`;
+    window.location.href = `https://event-manager-e5az.onrender.com/${username}`;
 })
 .catch(error => {
     console.error('Error:', error);
