@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Event Listing</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1 { color: #333; }
+        .event { border: 1px solid #ddd; padding: 10px; margin: 10px 0; border-radius: 5px; }
+        .buttons { margin-top: 20px; }
+        .buttons a { margin-right: 10px; padding: 8px 15px; background: #007BFF; color: white; text-decoration: none; border-radius: 4px; }
+        .buttons a:hover { background: #0056b3; }
+    </style>
+</head>
+<body>
+    <div style="display: flex; flex-direction: row; justify-content: space-between;">
+        <h1>Upcoming Events</h1>
+    </div>    
+    <div th:each="event : ${events}">
+        <div class="event">
+            <h2 th:text="${event.e_name}">Event Name</h2>
+            <span><h2>Venue: </h2><h2 th:text="${event.location}">Event Location</h2></span>
+            <span><p>Date: </p><p th:text="${event.date}">Event Date</p></span>
+            <p th:text="${event.description}">Event Description</p>
+        </div>
+    </div>
+    <div style="display: none;">
+        <h3 th:text="${username}"></h3>
+    </div>
+    
+</body>
+</html>

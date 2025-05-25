@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup Homepage</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f4f8;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    h1 {
+      margin-bottom: 40px;
+    }
+    .button-container {
+      display: flex;
+      gap: 20px;
+    }
+    .signup-button {
+      padding: 15px 30px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .signup-user {
+      background-color: #4caf50;
+      color: white;
+    }
+    .signup-user:hover {
+      background-color: #45a049;
+    }
+    .signup-admin {
+      background-color: #2196f3;
+      color: white;
+    }
+    .signup-admin:hover {
+      background-color: #1976d2;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome! Please Sign Up</h1>
+  <div class="button-container">
+    <button class="signup-button signup-user" onclick="window.location.href=`http://localhost:8080/usersignup`">Sign Up as User</button>
+    <button class="signup-button signup-admin" onclick="window.location.href=`http://localhost:8080/signup`">Sign Up as Admin</button>
+  </div>
+</body>
+</html>

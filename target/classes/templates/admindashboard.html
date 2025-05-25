@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard - Events</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f2f5;
+      margin: 0;
+      padding: 0;
+    }
+
+    .dashboard {
+      max-width: 800px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background-color: #ccc;
+      margin: 0 auto 10px auto;
+    }
+
+    h2 {
+      margin: 10px 0 5px 0;
+    }
+
+    p {
+      color: #555;
+      margin: 5px 0;
+    }
+
+    .section-title {
+      margin-top: 30px;
+      font-weight: bold;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 5px;
+      color: #333;
+    }
+
+    .event-list {
+      margin-top: 15px;
+    }
+
+    .event-card {
+      background-color: #f9f9f9;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    .event-card h3 {
+      margin: 0 0 5px 0;
+    }
+
+    .event-card p {
+      margin: 3px 0;
+      font-size: 14px;
+    }
+    button {
+            width: 100%;
+            padding: 10px;
+            background: #2980b9;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: background 0.3s ease;
+        }
+
+    button:hover {
+            background: #3498db;
+        }
+  </style>
+</head>
+<body>
+
+  <div class="dashboard">
+    <div class="profile-header">
+      <div class="avatar"></div>
+      <h2 id="userName">Alice Johnson</h2>
+      <p id="userEmail">alice@example.com</p>
+      <p id="userRole">Role: Admin</p>
+    </div>
+
+    <div class="section-title">My Events</div>
+    <div class="event-list" id="eventList">
+      <!-- Events will be loaded here -->
+       <button id="button">Add a event</button>
+    </div>
+  </div>
+
+  <div style="display: none;">
+    <h3 th:text="${username}" id="api"></h3>
+  </div>
+  <script>
+
+    document.getElementById("button").addEventListener('click',(e)=>{
+      e.preventDefault;
+      const username = document.getElementById('api').textContent;
+      console.log(username);
+      window.location.href = `http://localhost:8080/newEvent/${username}`;
+    })
+
+    
+  </script>
+
+</body>
+</html>

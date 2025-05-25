@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport">
+    <title>New Event</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    form {
+      background: white;
+      padding: 20px;
+      max-width: 400px;
+      margin: 0 auto 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    input, textarea {
+      width: 95%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+    .event-display {
+      background: white;
+      padding: 20px;
+      max-width: 400px;
+      margin: 0 auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+</style>
+<body>
+    <h1>Add an Event</h1>
+
+  <form id="eventForm">
+    <input type="text" id="eventName" placeholder="Event Name" required>
+    <input type="date" id="eventDate" required>
+    <input type="text" id="eventLocation" placeholder="Location" required>
+    <textarea id="eventDescription" placeholder="Event Description" required></textarea>
+    <button type="submit">Submit Event</button>
+  </form>
+
+  <div style="display: none;">
+    <h3 th:text="${username}" id="api"></h3>
+  </div>
+</body>
+  <script>
+    const form = document.getElementById('eventForm');
+    const eventDisplay = document.getElementById('eventDisplay');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const e_name = document.getElementById('eventName').value;
+      const date_tobeconverted = document.getElementById('eventDate').value;
+      const date = date_tobeconverted.toString();
+      console.log(date);
+      const location = document.getElementById('eventLocation').value;
+      const description = document.getElementById('eventDescription').value;
+      const apiusername = document.getElementById('api').textContent;
+
+      const data = {e_name, date, location, description}
+
+      fetch(`http://localhost:8080/api/newEvent/${apiusername}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      })
+      .then(response => response.json())
+      .then(result => {
+        console.log("Success:", result);
+      })
+      .catch(error => {
+        console.error("Error:", error);
+        alert("Failed to send data.");
+      });
+      
+      
+      form.reset();
+    });
+  </script>
+</html>

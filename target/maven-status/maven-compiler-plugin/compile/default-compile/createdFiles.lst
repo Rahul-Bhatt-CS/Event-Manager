@@ -1,0 +1,10 @@
+com\EventManager\EazyBytsFinalProject\Services\NewAdminService.class
+com\EventManager\EazyBytsFinalProject\Entities\Admin.class
+com\EventManager\EazyBytsFinalProject\Controllers\MainController.class
+com\EventManager\EazyBytsFinalProject\Database\MDBRepository.class
+com\EventManager\EazyBytsFinalProject\Database\MDBUserRepository.class
+com\EventManager\EazyBytsFinalProject\Entities\User.class
+com\EventManager\EazyBytsFinalProject\Controllers\WebpageController.class
+com\EventManager\EazyBytsFinalProject\Entities\Events.class
+com\EventManager\EazyBytsFinalProject\Database\EventsRepository.class
+com\EventManager\EazyBytsFinalProject\DemoApplication.class
